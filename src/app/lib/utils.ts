@@ -10,14 +10,18 @@ function convertToLocalTime(time: string) {
     return date.toLocaleString();
 }
 
-function formatTime(time: string) {
+function formatTimeWithWeekDay(time: string) {
     return dayjs(time).format('dddd, HH:mm');
+}
+
+function formatTime(time: string) {
+    return dayjs(time).format('HH:mm');
 }
 
 export function adaptWeatherDataToClient(inputData: WeatherResponse) : weatherInfo {
     const adaptedData = {...inputData, 
         current: {
-            time: formatTime(new Date().toISOString()),
+            time: formatTimeWithWeekDay(new Date().toISOString()),
             temperature: inputData.current.temperature_2m,
             aparentTemperature: inputData.current.apparent_temperature,
             precipitation: inputData.current.precipitation,

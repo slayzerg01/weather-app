@@ -4,7 +4,6 @@ import {
     adaptAirQualityDataToClient 
 } from './utils';
 import { weatherInfo } from './definitions';
-import { fetchWeatherApi } from 'openmeteo';
 
 const {
     weatherData, 
@@ -34,7 +33,7 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
         "forecast_days": 8
     };
     
-    noStore();
+    // noStore();
     try {
 
         if (USE_API) {
@@ -64,7 +63,7 @@ export async function fetchAirQuality(latitude: number, longitude: number) {
         "timezone": "auto"
     };
     
-    noStore();
+    // noStore();
     try {
 
         if (USE_API) {
