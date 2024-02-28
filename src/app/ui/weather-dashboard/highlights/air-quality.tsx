@@ -15,9 +15,9 @@ export async function AirQualityBlock (
     return (
         <>
             <div className="flex flex-row mb-6 justify-between">
-                <span className="text-gray-700 text-bold text-2xl">Air Quality {airquality?.usAqi}</span>
+                <span className="text-gray-700 text-bold text-2xl">Air Quality {airquality?.europeanAqi}</span>
                 <span className="flex items-center text-xl font-medium text-gray-600 me-3">
-                <span className={`flex w-2.5 h-2.5 ${airStatus ? airStatus.color : ''} rounded-full me-1.5 flex-shrink-0`}>
+                <span className={`flex w-3 h-3 ${airStatus ? airStatus.color : ''} rounded-full me-1.5 flex-shrink-0`}>
                 </span>{airStatus ? airStatus.name : 'no data' }</span>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -40,7 +40,7 @@ export async function AirQualityBlock (
                     <span className="text-gray-700 text-bold text-lg">O₃ {airquality?.ozone}</span>
                 </div>
             </div>
-            <span className="self-end text-gray-500 text-bold text-sm">μg/m³</span>
+            <span className="self-end text-gray-500 text-bold text-sm me-3">μg/m³</span>
         </>
     )
 }

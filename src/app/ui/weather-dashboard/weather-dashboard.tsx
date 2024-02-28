@@ -5,6 +5,9 @@ import Image from "next/image";
 import { AirQualityBlock } from "./highlights/air-quality";
 import { SunriseSunsetBlock } from "./highlights/sunrise-sunset";
 import { HumidityBlock } from "./highlights/humidity";
+import { WindBlock } from "./highlights/windBlock";
+import { Suspense } from 'react';
+import { AirQualitySkeleton } from "../skeletons/airQuality";
 
 async function WeatherDashboard (
     { days, currentDay, latitude, longitude }: 
@@ -20,14 +23,14 @@ async function WeatherDashboard (
                 <span className="self-start pl-4 mb-4 mt-6 text-black text-bold text-3xl">Week</span>
                 <div className="weather-week flex flex-row justify-around">
                     {
-                        
                         days.time.map((element, index) => {
                             if (index >= 1) {
                                 return (
                                     <WeatherDay key={index} 
                                     day={days.time[index]} 
                                     temperatureMax={days.temperatureMax[index]} 
-                                    temperatureMin={days.temperatureMin[index]}/>
+                                    temperatureMin={days.temperatureMin[index]}
+                                    weatherCode={days.weatherCode[index]}/>
                                 )
                             } 
                         })
@@ -44,8 +47,9 @@ async function WeatherDashboard (
                         </div>
                     </div>
                     <div style={{width: '32%'}} className="flex flex-col justify-start p-4 rounded-2xl text-black bg-white min-h-44">
-                        <span className="self-start text-gray-700 text-bold text-2xl">Wind status</span>
+                        <WindBlock windDirection={currentDay.windDirection} windSpeed={currentDay.windSpeed}/>
                     </div>
+                    
                     <div style={{width: '32%'}} className="flex flex-col justify-start p-4 rounded-2xl text-black bg-white min-h-44">
                         <SunriseSunsetBlock sunrise={days.sunrise[0]} sunset={days.sunset[0]}/>
                     </div>
@@ -61,9 +65,12 @@ async function WeatherDashboard (
                     <div style={{width: '32%'}} className="flex p-4 flex-col justify-start rounded-2xl text-black bg-white min-h-44">
                         <HumidityBlock humidity={currentDay.relativeHumidity}/>
                     </div>
+
                     <div style={{width: '32%'}} className="flex p-4 flex-col justify-start rounded-2xl text-black bg-white min-h-44">
 
+                    <Suspense fallback={<AirQualitySkeleton />}>
                         <AirQualityBlock longitude={longitude} latitude={latitude}/>
+                    </Suspense>
 
                     </div>
                 </div>

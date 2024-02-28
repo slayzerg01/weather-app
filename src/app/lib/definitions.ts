@@ -15,8 +15,8 @@ export type WeatherResponse = {
 type daily = {
     time: string[];
     weather_code: number[];
-    temperature_2m_max?: number[];
-    temperature_2m_min?: number[];
+    temperature_2m_max: number[];
+    temperature_2m_min: number[];
     sunrise: string[];
     sunset: string[];
     uv_index_max?: number[];
@@ -33,17 +33,21 @@ type currentUnits = {
     weather_code: string;
     surface_pressure: string;
     relative_humidity_2m: string;
+    wind_speed_10m: string;
+    wind_direction_10m: string;
 }
 
 type currentDay = {
     time: string;
     interval?: number;
-    temperature_2m?: number;
-    apparent_temperature?: number;
+    temperature_2m: number;
+    apparent_temperature: number;
     precipitation?: number;
+    wind_direction_10m: number;
     weather_code: number;
     surface_pressure?: number;
     relative_humidity_2m: number;
+    wind_speed_10m: number;
 }
 
 type dailyUnits = {
@@ -63,14 +67,17 @@ export type currentDayInfo = {
     temperature?: number;
     aparentTemperature: number;
     precipitation: number;
-    weatherCode: string;
+    weatherCodeText: string;
+    weatherCode: number;
+    windDirection: number;
     surfacePressure: number;
     relativeHumidity: number;
+    windSpeed: number;
 }
 
 export type daysInfo = {
     time: string[];
-    weatherCode: string[];
+    weatherCode: number[];
     temperatureMax: number[];
     temperatureMin: number[];
     sunrise: string[];

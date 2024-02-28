@@ -26,19 +26,22 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
     const params = {
         "latitude": latitude,
         "longitude": longitude,
-        "current": ["temperature_2m", "relative_humidity_2m", "apparent_temperature", "precipitation", "rain", "showers", "snowfall", "weather_code", "surface_pressure"],
+        "current": ["temperature_2m", "wind_speed_10m","wind_direction_10m", "relative_humidity_2m", "apparent_temperature", "precipitation", "rain", "showers", "snowfall", "weather_code", "surface_pressure"],
         "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "uv_index_max", "precipitation_sum", "wind_speed_10m_max"],
         "wind_speed_unit": "ms",
         "timezone": "auto",
         "forecast_days": 8
     };
-    
-    // noStore();
+
+    console.log('fetching weather data...');
+    //await new Promise((resolve) => setTimeout(resolve, 5000));
+    //noStore();
     try {
 
         if (USE_API) {
 
             const response = await axios(urlWeather, {params: params});
+            
             return adaptWeatherDataToClient(response.data);
 
         }
@@ -50,7 +53,7 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
     } 
     catch (err) {
         console.error('Fetch Error:', err);
-        return 'error'
+        return null
     }
 }
 
@@ -62,8 +65,10 @@ export async function fetchAirQuality(latitude: number, longitude: number) {
         "current": ["european_aqi", "us_aqi", "pm10", "pm2_5", "carbon_monoxide", "nitrogen_dioxide", "sulphur_dioxide", "ozone"],
         "timezone": "auto"
     };
-    
-    // noStore();
+    console.log('fetching airquality data...');
+    //await new Promise((resolve) => setTimeout(resolve, 5000));2
+
+    //noStore();
     try {
 
         if (USE_API) {

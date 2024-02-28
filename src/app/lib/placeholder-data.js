@@ -24,7 +24,9 @@ export const weatherData = {
         "precipitation": 0.00,
         "weather_code": 3,
         "surface_pressure": 1018.4,
-        "relative_humidity_2m": 56
+        "relative_humidity_2m": 56,
+        "wind_direction_10m": 196,
+        "wind_speed_10m": 25
     },
     "daily_units": {
         "time": "iso8601",

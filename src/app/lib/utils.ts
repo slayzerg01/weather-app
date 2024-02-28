@@ -22,18 +22,21 @@ export function adaptWeatherDataToClient(inputData: WeatherResponse) : weatherIn
     const adaptedData = {...inputData, 
         current: {
             time: formatTimeWithWeekDay(new Date().toISOString()),
-            temperature: inputData.current.temperature_2m,
-            aparentTemperature: inputData.current.apparent_temperature,
+            temperature: Math.round(inputData.current.temperature_2m),
+            aparentTemperature:  Math.round(inputData.current.apparent_temperature),
             precipitation: inputData.current.precipitation,
-            weatherCode: WMOcodeToText(inputData.current.weather_code),
+            weatherCodeText: WMOcodeToText(inputData.current.weather_code),
+            weatherCode: inputData.current.weather_code,
             surfacePressure: inputData.current.surface_pressure,
-            relativeHumidity: inputData.current.relative_humidity_2m
+            relativeHumidity: inputData.current.relative_humidity_2m,
+            windDirection: inputData.current.wind_direction_10m,
+            windSpeed: inputData.current.wind_speed_10m
         },
         daily: {
             time: inputData.daily.time.map((element) => dateToDayOfWeek(element)),
-            weatherCode: inputData.daily.weather_code.map((element) => WMOcodeToText(element)),
-            temperatureMax: inputData.daily.temperature_2m_max,
-            temperatureMin: inputData.daily.temperature_2m_min,
+            weatherCode: inputData.daily.weather_code,
+            temperatureMax: inputData.daily.temperature_2m_max.map((element) => Math.round(element)),
+            temperatureMin: inputData.daily.temperature_2m_min.map((element) => Math.round(element)),
             sunrise: inputData.daily.sunrise.map((element) => formatTime(element)),
             sunset: inputData.daily.sunset.map((element) => formatTime(element)),
             uvIndexMax: inputData.daily.uv_index_max,
