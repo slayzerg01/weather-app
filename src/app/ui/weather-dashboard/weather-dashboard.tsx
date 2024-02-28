@@ -42,7 +42,7 @@ async function WeatherDashboard (
                 <div className="flex flex-row justify-between px-4 mb-6">
                     <div style={{width: '32%'}} className="flex flex-col p-4 items-center justify-start rounded-2xl bg-white min-h-44">
                         <span className="self-start text-gray-700 text-bold text-2xl">UV Index</span>
-                        <div className={styles.semidonut} style={{'--percentage': `${days.uvIndexMax[0]*8.33}`}}>
+                        <div className={styles.semidonut} style={{['--percentage' as any] : `${days.uvIndexMax[0]*8.33}`}}>
                             {days.uvIndexMax[0]}
                         </div>
                     </div>
