@@ -17,7 +17,7 @@ export async function WindBlock (
                 </div>
                 <div className="flex flex-1 flex-row items-center justify-end">
                     <span className="self-center mr-4 text-gray-500 text-bold text-4xl">{clientDirection.name}</span>
-                    <Image style={{rotate: `${ clientDirection.degree - 45}deg`}} className="mr-6"
+                    <Image style={{rotate: `${clientDirection.degree + 135}deg`}} className="mr-6"
                     src="/navigator.png" width="100" height="100" alt="sunset image" />
                 </div>
             </div>

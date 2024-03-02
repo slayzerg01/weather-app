@@ -3,7 +3,6 @@ import {
     adaptWeatherDataToClient, 
     adaptAirQualityDataToClient 
 } from './utils';
-import { weatherInfo } from './definitions';
 
 const {
     weatherData, 
@@ -34,7 +33,7 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
     };
 
     console.log('fetching weather data...');
-    //await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     //noStore();
     try {
 
