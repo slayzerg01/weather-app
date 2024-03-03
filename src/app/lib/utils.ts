@@ -1,14 +1,5 @@
-import { WeatherResponse, weatherInfo, AirQualityResponse, AirQuality } from "./definitions";
+import { WeatherResponse, weatherInfo, AirQualityResponse, AirQuality, GeocodingResponse, LocationData } from "./definitions";
 import dayjs from "dayjs";
-
-const timeOffset = new Date().getTimezoneOffset() * 60;
-
-function convertToLocalTime(time: string) {
-    const date = new Date(time);
-    console.log(date);
-    date.setSeconds(date.getSeconds() - timeOffset * 60);
-    return date.toLocaleString();
-}
 
 function formatTimeWithWeekDay(time: string) {
     return dayjs(time).format('dddd, HH:mm');
@@ -80,6 +71,16 @@ export function adaptAirQualityDataToClient(inputData: AirQualityResponse) : Air
     delete adaptedData.current_units;
 
     return adaptedData.current as AirQuality;
+}
+
+export function adaptGeocodingDataToClient(inputData: GeocodingResponse) : LocationData {
+    const adaptedData: LocationData = {
+        name: inputData.results[0].name,
+        latitude: inputData.results[0].latitude,
+        longitude: inputData.results[0].longitude
+    }
+
+    return adaptedData;
 }
 
 function dateToDayOfWeek(date: string) {

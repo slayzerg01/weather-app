@@ -1,10 +1,14 @@
 import Image from "next/image";
 import { CloudIcon } from "@heroicons/react/24/outline";
 import { ChartBarIcon } from "@heroicons/react/24/solid";
-import { currentDayInfo } from "../lib/definitions";
+import { currentDayInfo } from "@/app/lib/definitions";
 
 
-export default async function MainCard ({ currentDay }: { currentDay:  currentDayInfo}) {
+export default async function MainCard ({ currentDay, locationName }: 
+    { 
+        currentDay:  currentDayInfo,
+        locationName: string
+    }) {
 
     return (
         <div className="flex flex-col rounded-l-2xl justify-start items-center w-full bg-white">
@@ -30,7 +34,7 @@ export default async function MainCard ({ currentDay }: { currentDay:  currentDa
                 <div className="flex place-self-end  flex-row mx-auto">
                     <div className="relative">
                         <Image style={{display: 'block', width: '320px', height: '120px'}} className="rounded-2xl" src="/sky.jpg" width="250" height="250" alt="product image" />
-                        <span className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-gray-700 text-center text-2xl font-bold">Baikonur</span>
+                        <span className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-gray-700 text-center text-4xl font-bold">{locationName}</span>
                     </div>
                 </div>
             </div>

@@ -166,3 +166,24 @@ export const airQuality = {
         "ozone": 54.0
     }
 }
+
+export const geocoding = {
+    results: [
+        {
+            id: 1521368,
+            name: 'Baikonur',
+            latitude: 45.61667,
+            longitude: 63.31667,
+            elevation: 730,
+            feature_code: 'PPLA',
+            country_code: 'KZ',
+            admin1_id: 1538316,
+            timezone: 'Asia/Qostanay',
+            population: 70000,
+            country_id: 1522867,
+            country: 'Kazakhstan',
+            admin1: 'Baikonur'
+        }
+        ],
+        generationtime_ms: 0.25606155
+}

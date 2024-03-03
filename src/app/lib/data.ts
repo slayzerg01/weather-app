@@ -1,12 +1,14 @@
 import { unstable_noStore as noStore } from 'next/cache';
 import { 
     adaptWeatherDataToClient, 
-    adaptAirQualityDataToClient 
+    adaptAirQualityDataToClient,
+    adaptGeocodingDataToClient
 } from './utils';
 
 const {
     weatherData, 
-    airQuality
+    airQuality,
+    geocoding
 } = require('./placeholder-data');
 
 const USE_API = false;
@@ -65,7 +67,7 @@ export async function fetchAirQuality(latitude: number, longitude: number) {
         "timezone": "auto"
     };
     console.log('fetching airquality data...');
-    //await new Promise((resolve) => setTimeout(resolve, 5000));2
+    //await new Promise((resolve) => setTimeout(resolve, 5000));
 
     //noStore();
     try {
@@ -78,6 +80,34 @@ export async function fetchAirQuality(latitude: number, longitude: number) {
         }
         else {
             return adaptAirQualityDataToClient(airQuality);
+        }
+
+    } 
+    catch (err) {
+        console.error('Fetch Error:', err);
+        return null;
+    }
+}
+
+export async function fetchLocationCoordinates(location: string) { 
+    const params = {
+        "name": location,
+        "count": 1,
+        "language": "en",
+        "format": "json"
+    };
+    console.log('fetching geocoding data...');
+    
+    try {
+
+        if (USE_API) {
+
+            const response = await axios(urlGeoCoding, {params: params});
+            return adaptGeocodingDataToClient(response.data);
+
+        }
+        else {
+            return adaptGeocodingDataToClient(geocoding);
         }
 
     } 
