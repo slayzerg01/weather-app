@@ -11,23 +11,23 @@ export default async function MainCard ({ currentDay, locationName }:
     }) {
 
     return (
-        <div className="flex flex-col rounded-l-2xl justify-start items-center w-full bg-white">
+        <div className="flex flex-col rounded-l-2xl justify-start items-center w-full bg-white dark:bg-zinc-800">
             <Image className="p-4" src={`/weather-status/${currentDay.weatherCode}.png`} width="350" height="350" alt="product image" />
             <div className="flex flex-col flex-1 mb-5">
-                <h5 className="text-4xl text-center font-semibold tracking-tight text-black ">{currentDay.temperature} °C</h5>
+                <h5 className="text-4xl text-center font-semibold tracking-tight">{currentDay.temperature} °C</h5>
                 <div className="flex flex-row justify-center items-center mx-auto mb-1">
                     <span className="text-xl text-center font-semibold tracking-tight text-gray-500 ">Feels like {currentDay.aparentTemperature} °C</span>
                 </div>
-                <h5 className="text-2xl text-center font-semibold tracking-tight text-black mb-2">{currentDay.time}</h5>
+                <h5 className="text-2xl text-center font-semibold tracking-tight mb-2">{currentDay.time}</h5>
                 
                 <hr style={{borderTop: '1px solid #0e0e0e'}} className="w-72 mx-auto mb-5"></hr>
                 <div className="flex flex-row items-center mb-5">
-                    <CloudIcon className="h-10 w-10 text-black mr-5" />
-                    <span className="text-black text-center text-l font-medium">{currentDay.weatherCodeText}</span>      
+                    <CloudIcon className="h-10 w-10 mr-5" />
+                    <span className="text-center text-l font-medium">{currentDay.weatherCodeText}</span>      
                 </div>
                 <div className="flex flex-row items-center mb-10">
-                    <ChartBarIcon style={{rotate: '180deg', transform: 'scaleX(-1)'}} className="h-10 w-10 text-black mr-5"/>
-                    <span className="text-black text-center text-l font-medium">Precipitation - {currentDay.precipitation}%</span>
+                    <ChartBarIcon style={{rotate: '180deg', transform: 'scaleX(-1)'}} className="h-10 w-10 mr-5"/>
+                    <span className="text-center text-l font-medium">Precipitation - {currentDay.precipitation}%</span>
                 </div>
                 
                 

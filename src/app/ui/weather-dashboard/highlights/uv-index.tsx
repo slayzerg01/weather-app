@@ -9,7 +9,7 @@ export async function UvIndex (
     return (
         <>
             <div className='flex flex-col'>
-                <span className="text-gray-700 text-bold text-2xl mb-6">UV Index</span>
+                <span className="text-gray-700 dark:text-white text-bold text-2xl mb-6">UV Index</span>
                 <span className="ml-2 text-gray-500 text-bold text-4xl">{get_uv_index_status(uvIndexMax)}</span>
             </div>
             <div className={`${styles.semidonut} self-center mr-4`}

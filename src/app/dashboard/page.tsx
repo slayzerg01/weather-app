@@ -19,20 +19,20 @@ export default async function Page({
     const weatherData: weatherInfo = await fetchRealTimeWeather(locationData.latitude, locationData.longitude) as weatherInfo;
 
     return ( 
-        <main className="flex flex-grow p-5 bg-gray-300">
+        <main className="bg-gray-300 dark:bg-black flex flex-grow p-5">
             <div className="flex flex-row flex-grow mx-auto max-w-full rounded-2xl">
-            <div style={{width: '20%'}} className="flex flex-grow"> 
-                <MainCard currentDay={weatherData.current} locationName={locationData.name}/> 
+                <div style={{width: '20%'}} className="flex flex-grow"> 
+                    <MainCard currentDay={weatherData.current} locationName={locationData.name}/> 
+                </div>
+                <div style={{width: '80%'}} className="flex flex-grow">
+                    <WeatherDashboard 
+                    days={weatherData.daily} 
+                    currentDay={weatherData.current}
+                    latitude={locationData.latitude}
+                    longitude={locationData.longitude}
+                    /> 
+                </div>
             </div>
-            <div style={{width: '80%'}} className="flex flex-grow">
-                <WeatherDashboard 
-                days={weatherData.daily} 
-                currentDay={weatherData.current}
-                latitude={locationData.latitude}
-                longitude={locationData.longitude}
-            /> 
-            </div>
-        </div>
         </main>
     )
 

@@ -9,7 +9,7 @@ export async function SunriseSunsetBlock (
 ) {
     return (
         <>
-            <span className="self-start text-gray-700 text-bold text-2xl mb-2">Sunrise & Sunset</span>
+            <span className="self-start text-gray-700 dark:text-white text-bold text-2xl mb-2">Sunrise & Sunset</span>
             <div className="flex flex-col justify-start">
                 <div className="flex flex-row items-center mb-2">
                     <Image className="p-2" src="/sunrise.png" width="50" height="50" alt="sunrise image" />
