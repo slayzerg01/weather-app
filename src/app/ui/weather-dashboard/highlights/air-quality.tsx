@@ -15,29 +15,29 @@ export async function AirQualityBlock (
     return (
         <>
             <div className="flex flex-row mb-6 justify-between">
-                <span className="text-gray-700 text-bold text-2xl">Air Quality {airquality?.europeanAqi}</span>
-                <span className="flex items-center text-xl font-medium text-gray-600 me-3">
+                <span className="text-gray-700 dark:text-white text-bold text-2xl">Air Quality {airquality?.europeanAqi}</span>
+                <span className="flex items-center text-xl font-medium text-gray-500 me-3">
                 <span className={`flex w-3 h-3 ${airStatus ? airStatus.color : ''} rounded-full me-1.5 flex-shrink-0`}>
                 </span>{airStatus ? airStatus.name : 'no data' }</span>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 <div>
-                    <span className="text-gray-700 text-bold text-lg">SO₂ {airquality?.sulphurDioxide}</span>
+                    <span className="text-gray-600 dark:text-gray-500 text-bold text-lg">SO₂ {airquality?.sulphurDioxide}</span>
                 </div>
                 <div>
-                    <span className="text-gray-700 text-bold text-lg">CO {airquality?.carbonMonoxide}</span>
+                    <span className="text-gray-600 dark:text-gray-500 text-bold text-lg">CO {airquality?.carbonMonoxide}</span>
                 </div>
                 <div>
-                    <span className="text-gray-700 text-bold text-lg">PM₁₀ {airquality?.pm10}</span>
+                    <span className="text-gray-600 dark:text-gray-500 text-bold text-lg">PM₁₀ {airquality?.pm10}</span>
                 </div>
                 <div>
-                    <span className="text-gray-700 text-bold text-lg">NO₂ {airquality?.nitrogenDioxide}</span>
+                    <span className="text-gray-600 dark:text-gray-500 text-bold text-lg">NO₂ {airquality?.nitrogenDioxide}</span>
                 </div>
                 <div>
-                    <span className="text-gray-700 text-bold text-lg">PM₂₅ {airquality?.pm25}</span>
+                    <span className="text-gray-600 dark:text-gray-500 text-bold text-lg">PM₂₅ {airquality?.pm25}</span>
                 </div>
                 <div>
-                    <span className="text-gray-700 text-bold text-lg">O₃ {airquality?.ozone}</span>
+                    <span className="text-gray-600 dark:text-gray-500 text-bold text-lg">O₃ {airquality?.ozone}</span>
                 </div>
             </div>
             <span className="self-end text-gray-500 text-bold text-sm me-3">μg/m³</span>

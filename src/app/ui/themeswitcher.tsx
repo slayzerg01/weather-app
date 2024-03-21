@@ -7,7 +7,6 @@ import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
 
 export function ThemeSwitcher() {
     const [mounted, setMounted] = useState(false)
-    const [switchstate, changeState] = useState(false)
     const { theme, setTheme } = useTheme()
 
     useEffect(() => {
@@ -15,8 +14,7 @@ export function ThemeSwitcher() {
     }, [])
 
     function switcherClicked() {
-        changeState(prevState => !prevState)
-        switchstate ? setTheme('dark') : setTheme('light')
+        theme == 'dark' ? setTheme('light') : setTheme('dark') 
     }
 
     if(!mounted) return null
@@ -28,6 +26,7 @@ export function ThemeSwitcher() {
                 color="success"
                 startContent={<SunIcon />}
                 endContent={<MoonIcon />}
+                isSelected={theme == 'dark' ? false : true}
                 onChange={() => switcherClicked()}
             >
                 {/* {switchstate ? 'Dark mode' : 'Light Mode' } */}

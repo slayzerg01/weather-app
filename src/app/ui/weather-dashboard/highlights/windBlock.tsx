@@ -12,7 +12,7 @@ export async function WindBlock (
         <>  
             <div className="flex flex-row flex-1 justify-between">
                 <div className="flex flex-col">
-                    <span className="self-start text-gray-700 text-bold text-2xl mb-6">Wind status</span>
+                    <span className="self-start text-gray-700 dark:text-white text-bold text-2xl mb-6">Wind status</span>
                     <span className="flex ml-2 text-center text-gray-500 text-bold text-4xl">{windSpeed} m/s</span>
                 </div>
                 <div className="flex flex-1 flex-row items-center justify-end">
