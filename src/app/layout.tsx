@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      
+        <head>
+          <title>Weather app</title>
+        </head>
         <body className={`${roboto.className}`}>
           
           <Providers>
