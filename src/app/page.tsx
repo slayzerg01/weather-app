@@ -18,7 +18,7 @@ export default function Home() {
     <main className="bg-gray-300 dark:bg-black flex flex-grow p-5 justify-center">
       <Card className="dark:bg-zinc-800 max-h-[250px] w-5/6 md:w-1/4 m-4">
         <CardBody>
-          <span className="text-sm md:text-2xl mx-auto m-2"> Enter the name of the locality </span>
+          <span className="text-sm md:text-2xl mx-auto m-2"> Enter city name </span>
           <form className="max-w-md flex flex-1 justify-items-center" onSubmit={onSubmit}>   
             <div className="relative self-center w-full">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">

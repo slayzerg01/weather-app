@@ -11,7 +11,7 @@ const {
     geocoding
 } = require('./placeholder-data');
 
-const USE_API = true;
+const USE_API = false;
 
 const urlWeather = "https://api.open-meteo.com/v1/forecast";
 const urlAirQuality = "https://air-quality-api.open-meteo.com/v1/air-quality";
