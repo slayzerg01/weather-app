@@ -1,13 +1,13 @@
-import WeatherDay from "./elements/weather-day/weather-day";
+import WeatherDay from "../elements/weather-day/weather-day";
 import { daysInfo, currentDayInfo } from "@/lib/definitions";
-import { AirQualityBlock } from "./elements/highlights/air-quality";
-import { SunriseSunsetBlock } from "./elements/highlights/sunrise-sunset";
-import { HumidityBlock } from "./elements/highlights/humidity";
-import { WindBlock } from "./elements/highlights/wind-block";
+import { AirQualityBlock } from "../elements/highlights/air-quality";
+import { SunriseSunsetBlock } from "../elements/highlights/sunrise-sunset";
+import { HumidityBlock } from "../elements/highlights/humidity";
+import { WindBlock } from "../elements/highlights/wind-block";
 import { Suspense } from 'react';
-import { AirQualitySkeleton } from "../skeletons/airQuality";
-import { SurfacePressure } from "./elements/highlights/pressure";
-import { UvIndex } from "./elements/highlights/uv-index";
+import { AirQualitySkeleton } from "../../skeletons/airQuality";
+import { SurfacePressure } from "../elements/highlights/pressure";
+import { UvIndex } from "../elements/highlights/uv-index";
 
 async function CardRightSide (
     { days, currentDay, latitude, longitude }: 

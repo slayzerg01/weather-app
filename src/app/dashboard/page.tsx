@@ -1,6 +1,5 @@
 'use client'
 
-//import { headers } from 'next/headers'
 import { useSearchParams } from 'next/navigation'
 import { Dashboard } from '../../ui/weather-dashboard/dashbard'
 import { isMobile } from 'react-device-detect';

@@ -64,7 +64,7 @@ type dailyUnits = {
 
 export type currentDayInfo = {
     time: string;
-    temperature?: number;
+    temperature: number;
     aparentTemperature: number;
     precipitation: number;
     weatherCodeText: string;
