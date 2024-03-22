@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-function WeatherDay({day, temperatureMax, temperatureMin, weatherCode} : 
+export default function WeatherDay({day, temperatureMax, temperatureMin, weatherCode} : 
     {day: string, 
     temperatureMax: number, 
     temperatureMin: number,
@@ -14,5 +14,3 @@ function WeatherDay({day, temperatureMax, temperatureMin, weatherCode} :
         </div>
     );
 }
-
-export default WeatherDay;

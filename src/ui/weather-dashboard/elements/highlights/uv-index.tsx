@@ -1,4 +1,5 @@
 import styles from '@/ui/home.module.scss';
+import { Card, CardBody, CardHeader } from '@nextui-org/react';
 
 export async function UvIndex (
     { uvIndexMax }: 
@@ -21,6 +22,29 @@ export async function UvIndex (
             </div>
             
         </>
+    )
+}
+
+export async function MobileUvIndex (
+    { uvIndexMax }: 
+    { 
+        uvIndexMax: number, 
+    }
+) {
+    return (
+        <Card className='dark:bg-zinc-800'>
+            <CardHeader>UV Index</CardHeader>
+            <CardBody className='flex flex-col'>
+                <div className={`${styles.semidonutMobile} self-center mx-auto mb-2`}
+                    style={
+                        {['--percentage' as any] : `${uvIndexMax*8.33}`,
+                        ['--fill' as any] : `${get_uv_index_color(uvIndexMax)}`}
+                        }>
+                        {uvIndexMax}
+                </div>
+                <span className="self-center text-bold">{get_uv_index_status(uvIndexMax)}</span>
+            </CardBody>
+        </Card>
     )
 }
 
