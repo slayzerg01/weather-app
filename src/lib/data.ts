@@ -35,7 +35,7 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
     };
 
     console.log('fetching weather data...');
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    //await new Promise((resolve) => setTimeout(resolve, 2000));
     //noStore();
     try {
 

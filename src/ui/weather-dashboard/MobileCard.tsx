@@ -1,8 +1,8 @@
-import { LocationData, weatherInfo } from "@/lib/definitions";
+import { LocationData, weatherInfo, daysInfo } from "@/lib/definitions";
 import { fetchLocationCoordinates, fetchRealTimeWeather } from "@/lib/data";
 import EmptyPage from "../empty-page";
 import { MobileCardHeader } from "./modules/mobile-card-header";
-
+import MobileCardBody from "./modules/mobile-card-body";
 
 export default async function MobileCard ({
     location
@@ -21,12 +21,11 @@ export default async function MobileCard ({
     return (
         <div className="flex flex-col rounded-2xl justify-start w-full bg-white dark:bg-zinc-800">
             <MobileCardHeader 
-            location={location} 
+            location={locationData.name} 
             temperature={curDay.temperature}
             temperature_max={days.temperatureMax[0]}
             temperature_min={days.temperatureMin[0]} />
+            <MobileCardBody days={days}/>
         </div>
     );
 }
-
-
