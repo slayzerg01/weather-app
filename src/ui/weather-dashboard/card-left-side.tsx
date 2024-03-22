@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { CloudIcon } from "@heroicons/react/24/outline";
 import { ChartBarIcon } from "@heroicons/react/24/solid";
-import { currentDayInfo } from "@/app/lib/definitions";
+import { currentDayInfo } from "@/lib/definitions";
 
 
-export default async function MainCard ({ currentDay, locationName }: 
+export default async function CardLeftSide ({ currentDay, locationName }: 
     { 
         currentDay:  currentDayInfo,
         locationName: string

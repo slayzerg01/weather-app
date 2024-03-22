@@ -1,4 +1,4 @@
-import styles from '@/app/ui/home.module.scss';
+import styles from '@/ui/home.module.scss';
 
 export async function UvIndex (
     { uvIndexMax }: 

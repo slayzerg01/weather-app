@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { weatherInfo } from "@/app/lib/definitions";
+import { weatherInfo } from "@/lib/definitions";
 
-export default async function MobileCard ({weatherdata}: 
-    {weatherdata: weatherInfo}) 
-    {
-    
+export default async function MobileCard ({
+    location
+}: {
+    location: string
+}) {
     return (
         <div className="flex flex-col rounded-2xl justify-start items-center w-full bg-white dark:bg-zinc-800">
             <MobileCardHeader />

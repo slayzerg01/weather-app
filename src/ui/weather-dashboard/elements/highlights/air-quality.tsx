@@ -1,5 +1,5 @@
-import { fetchAirQuality } from "@/app/lib/data";
-import { AirQuality } from "@/app/lib/definitions";
+import { fetchAirQuality } from "@/lib/data";
+import { AirQuality } from "@/lib/definitions";
 
 export async function AirQualityBlock (
     { latitude, longitude }: 

@@ -1,15 +1,15 @@
-import WeatherDay from "./weather-day/weather-day";
-import { daysInfo, currentDayInfo } from "@/app/lib/definitions";
-import { AirQualityBlock } from "./highlights/air-quality";
-import { SunriseSunsetBlock } from "./highlights/sunrise-sunset";
-import { HumidityBlock } from "./highlights/humidity";
-import { WindBlock } from "./highlights/windBlock";
+import WeatherDay from "./elements/weather-day/weather-day";
+import { daysInfo, currentDayInfo } from "@/lib/definitions";
+import { AirQualityBlock } from "./elements/highlights/air-quality";
+import { SunriseSunsetBlock } from "./elements/highlights/sunrise-sunset";
+import { HumidityBlock } from "./elements/highlights/humidity";
+import { WindBlock } from "./elements/highlights/wind-block";
 import { Suspense } from 'react';
 import { AirQualitySkeleton } from "../skeletons/airQuality";
-import { SurfacePressure } from "./highlights/pressure";
-import { UvIndex } from "./highlights/uv-index";
+import { SurfacePressure } from "./elements/highlights/pressure";
+import { UvIndex } from "./elements/highlights/uv-index";
 
-async function WeatherDashboard (
+async function CardRightSide (
     { days, currentDay, latitude, longitude }: 
     { days:  daysInfo, 
     currentDay: currentDayInfo, 
@@ -70,4 +70,4 @@ async function WeatherDashboard (
     );
 }
 
-export default WeatherDashboard;
+export default CardRightSide;
