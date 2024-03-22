@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="bg-gray-300 dark:bg-black flex flex-grow p-5 justify-center">
-      <Card className="dark:bg-zinc-800 max-h-[250px] w-5/6 md:w-1/4 m-4">
+      <Card className="dark:bg-zinc-800 max-h-[250px] h-1/4 w-5/6 md:w-1/4 m-4">
         <CardBody>
           <span className="text-sm md:text-2xl mx-auto m-2"> Enter city name </span>
           <form className="max-w-md flex flex-1 justify-items-center" onSubmit={onSubmit}>   

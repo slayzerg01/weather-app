@@ -2,6 +2,9 @@ import MainCard from "../ui/weather-dashboard/mainCard";
 import WeatherDashboard from "../ui/weather-dashboard/weather-dashboard";
 import { weatherInfo, LocationData } from "../lib/definitions";
 import { fetchRealTimeWeather, fetchLocationCoordinates } from "../lib/data";
+import { headers } from 'next/headers'
+import MobileCard from "../ui/weather-dashboard/MobileCard";
+
 
 export default async function Page({
     params,
@@ -11,6 +14,8 @@ export default async function Page({
         searchParams?: { [key: string]: string | string[] | undefined };
     }) 
 {   
+    
+    const deviceType = getDeviceType()
     if (!searchParams?.location) return emptyPage();
 
     const locationData: LocationData | null = await fetchLocationCoordinates(searchParams?.location as string);
@@ -18,6 +23,15 @@ export default async function Page({
 
     const weatherData: weatherInfo = await fetchRealTimeWeather(locationData.latitude, locationData.longitude) as weatherInfo;
 
+    if (deviceType == 'mobile') 
+    return(
+            <main className="bg-gray-300 dark:bg-black flex flex-grow p-5">
+                <div className="flex flex-row flex-grow mx-auto max-w-full rounded-2xl">
+                </div>
+            </main>
+
+    )
+    else
     return ( 
         <main className="bg-gray-300 dark:bg-black flex flex-grow p-5">
             <div className="flex flex-row flex-grow mx-auto max-w-full rounded-2xl">
@@ -44,4 +58,15 @@ function emptyPage() {
             <span className="mx-auto text-4xl text-black"> Data not found </span>
         </main>
     )
+}
+
+export const getDeviceType = () => {
+    const headersList = headers()
+    const userAgent = headersList.get('user-agent')
+    
+    return userAgent!.match(
+    /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+    )
+    ? 'mobile'
+    : 'desktop'
 }
