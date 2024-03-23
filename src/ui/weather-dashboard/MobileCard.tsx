@@ -1,4 +1,4 @@
-import { LocationData, weatherInfo, daysInfo } from "@/lib/definitions";
+import { LocationData, weatherInfo } from "@/lib/definitions";
 import { fetchLocationCoordinates, fetchRealTimeWeather } from "@/lib/data";
 import EmptyPage from "../empty-page";
 import { MobileCardHeader } from "./modules/mobile-card-header";
@@ -25,7 +25,7 @@ export default async function MobileCard ({
             temperature={curDay.temperature}
             temperature_max={days.temperatureMax[0]}
             temperature_min={days.temperatureMin[0]} />
-            <MobileCardBody days={days}/>
+            <MobileCardBody days={days} current={curDay}/>
         </div>
     );
 }

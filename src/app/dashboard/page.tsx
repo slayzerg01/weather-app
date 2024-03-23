@@ -1,23 +1,23 @@
-'use client'
-
-import { useSearchParams } from 'next/navigation'
 import { Dashboard } from '../../ui/weather-dashboard/dashbard'
-import { isMobile } from 'react-device-detect';
 import EmptyPage from '../../ui/empty-page';
 import MobileCard from '@/ui/weather-dashboard/MobileCard';
+import { getDeviceType } from '@/lib/utils';
 
 
-export default function Page() 
+export default function Page({
+    searchParams,
+    }: {
+    searchParams: { [key: string]: string | undefined };
+    }) 
 {   
-
-    const searchParams = useSearchParams()
-    const location = searchParams.get('location')
-    if (location == null) return(EmptyPage())
-
+    const location= searchParams["location"];
+    if (location == undefined) return(EmptyPage())
+    
     return ( 
         <main className="bg-gray-300 dark:bg-black flex flex-grow p-5">
-            {isMobile ? (<MobileCard location={location}/>) : (<Dashboard location={location}/>)}  
+            {getDeviceType() == 'mobile' ? (<MobileCard location={location as string}/>) : (<Dashboard location={location as string}/>)}  
         </main>
     )
-
 }
+
+

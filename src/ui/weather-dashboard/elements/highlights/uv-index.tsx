@@ -1,7 +1,7 @@
 import styles from '@/ui/home.module.scss';
 import { Card, CardBody, CardHeader } from '@nextui-org/react';
 
-export async function UvIndex (
+export function UvIndex (
     { uvIndexMax }: 
     { 
         uvIndexMax: number, 
@@ -25,7 +25,7 @@ export async function UvIndex (
     )
 }
 
-export async function MobileUvIndex (
+export function MobileUvIndex (
     { uvIndexMax }: 
     { 
         uvIndexMax: number, 
