@@ -1,7 +1,7 @@
 import { Dashboard } from '../../ui/weather-dashboard/dashbard'
 import EmptyPage from '../../ui/empty-page';
 import MobileCard from '@/ui/weather-dashboard/MobileCard';
-import { getDeviceType } from '@/lib/utils';
+import { getDeviceType } from '@/lib/dieviceType';
 
 
 export default function Page({

@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 import { WeatherResponse, weatherInfo, AirQualityResponse, AirQuality, GeocodingResponse, LocationData } from "./definitions";
 import dayjs from "dayjs";
 
@@ -177,13 +176,4 @@ function WMOcodeToText(code: number) {
         default:
             return 'Weather code not found'
     }
-}
-
-export const getDeviceType = () => {
-    const headersList = headers()
-    const userAgent = headersList.get('user-agent')
-
-    return userAgent!.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i)
-    ? 'mobile'
-    : 'desktop'
 }

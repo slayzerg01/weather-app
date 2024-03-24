@@ -7,7 +7,7 @@ export async function SurfacePressure (
     }
 ) {
     return (
-        <div className="flex flex-row justify-between flex-1">
+        <div className="flex flex-row justify-between flex-grow">
             <div className="flex flex-col">
                 <span className="self-start text-gray-700 dark:text-white text-bold text-2xl mb-6">Pressure</span>
                 <span className="ml-2 align-middle text-gray-500 text-bold text-4xl">{Math.ceil(surfacePressure)} hPa</span>
