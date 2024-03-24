@@ -3,6 +3,7 @@ import { MobileWindBlock } from "../elements/highlights/wind-block";
 import { MobileSunriseSunsetBlock } from "../elements/highlights/sunrise-sunset";
 import { MobileHumidityBlock } from "../elements/highlights/humidity";
 import { MobileAirQualityBlock } from "../elements/highlights/air-quality";
+import { MobileSurfacePressure } from "../elements/highlights/pressure";
 import { Suspense } from "react";
 import { currentDayInfo, daysInfo } from "@/lib/definitions";
 import { AirQuality } from "@/lib/definitions";
@@ -20,6 +21,7 @@ export function TodaysHighlights(
                 </Suspense>
                 <MobileSunriseSunsetBlock sunrise={days.sunrise[0]} sunset={days.sunset[0]}/>
                 <MobileHumidityBlock humidity={current.relativeHumidity}/>
+                <MobileSurfacePressure surfacePressure={current.surfacePressure}/>
                 <MobileAirQualityBlock airquality={airquality}/>
         </div>
     )
