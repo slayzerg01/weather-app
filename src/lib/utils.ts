@@ -30,7 +30,6 @@ export function adaptWeatherDataToClient(inputData: WeatherResponse) : weatherIn
             temperatureMin: inputData.daily.temperature_2m_min.map((element) => Math.round(element)),
             sunrise: inputData.daily.sunrise.map((element) => formatTime(element)),
             sunset: inputData.daily.sunset.map((element) => formatTime(element)),
-            uvIndexMax: inputData.daily.uv_index_max,
             precipitationSum: inputData.daily.precipitation_sum,
             windSpeedMax: inputData.daily.wind_speed_10m_max,
         }

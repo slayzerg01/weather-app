@@ -80,7 +80,6 @@ export type daysInfo = {
     temperatureMin: number[];
     sunrise: string[];
     sunset: string[];
-    uvIndexMax: number[];
     precipitationSum: number[];
     windSpeedMax: number[];
 }
