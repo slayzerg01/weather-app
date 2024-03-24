@@ -8,7 +8,6 @@ import { TodaysHighlights } from "./mobile-hightlights";
 export default function MobileCardBody({days, current, airquality}: 
     {days: daysInfo, 
     current: currentDayInfo, 
-    location: LocationData,
     airquality: AirQuality
 }) {
     return(

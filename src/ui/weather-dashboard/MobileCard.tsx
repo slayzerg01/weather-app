@@ -15,9 +15,12 @@ export default async function MobileCard ({
 
     const weatherData: weatherInfo | null = await fetchRealTimeWeather(locationData.latitude, locationData.longitude)
     if (weatherData == null) return EmptyPage()
+    
+    const airquality: AirQuality | null = await fetchAirQuality(locationData.latitude, locationData.longitude);
+    if (airquality == null) return EmptyPage()
+    
     const curDay = weatherData.current 
     const days = weatherData.daily
-    const airquality: AirQuality | null = await fetchAirQuality(locationData.latitude, locationData.longitude);
 
     return (
         <div className="flex flex-col rounded-2xl justify-start w-full bg-white dark:bg-zinc-800">
