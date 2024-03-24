@@ -4,7 +4,7 @@ import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
-export async function MobileWindBlock (
+export function MobileWindBlock (
     { windDirection, windSpeed }: 
     { 
         windDirection: number,

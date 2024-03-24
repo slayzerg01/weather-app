@@ -33,7 +33,7 @@ export function MobileUvIndex (
 ) {
     return (
         <Card className='dark:bg-zinc-800'>
-            <CardHeader>UV Index</CardHeader>
+            <CardHeader>UV Index - {get_uv_index_status(uvIndexMax)} </CardHeader>
             <CardBody className='flex flex-col'>
                 <div className={`${styles.semidonutMobile} self-center mx-auto mb-2`}
                     style={
@@ -42,7 +42,7 @@ export function MobileUvIndex (
                         }>
                         {uvIndexMax}
                 </div>
-                <span className="self-center text-bold">{get_uv_index_status(uvIndexMax)}</span>
+                
             </CardBody>
         </Card>
     )

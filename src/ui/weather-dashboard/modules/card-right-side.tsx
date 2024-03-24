@@ -1,13 +1,12 @@
 import WeatherDay from "../elements/weather-day/weather-day";
-import { daysInfo, currentDayInfo } from "@/lib/definitions";
+import { daysInfo, currentDayInfo, AirQuality } from "@/lib/definitions";
 import { AirQualityBlock } from "../elements/highlights/air-quality";
 import { SunriseSunsetBlock } from "../elements/highlights/sunrise-sunset";
 import { HumidityBlock } from "../elements/highlights/humidity";
 import { WindBlock } from "../elements/highlights/wind-block";
-import { Suspense } from 'react';
-import { AirQualitySkeleton } from "../../skeletons/airQuality";
 import { SurfacePressure } from "../elements/highlights/pressure";
 import { UvIndex } from "../elements/highlights/uv-index";
+import { fetchAirQuality } from "@/lib/data";
 
 async function CardRightSide (
     { days, currentDay, latitude, longitude }: 
@@ -16,7 +15,9 @@ async function CardRightSide (
     latitude: number, 
     longitude: number
     }) 
-{
+{   
+    const airquality: AirQuality | null = await fetchAirQuality(latitude, longitude);
+    
     return (
         <div className="w-full rounded-r-2xl px-8 bg-gray-200 dark:bg-zinc-700">
             <div className="flex flex-col justify-start p-4 mb-4">
@@ -41,7 +42,7 @@ async function CardRightSide (
                 <span className="text-bold text-3xl ml-4 mb-6">Todays highlights</span>
                 <div className="flex flex-row justify-between px-4 mb-6">
                     <div style={{width: '32%'}} className="flex flex-row p-4 justify-between rounded-2xl bg-white dark:bg-zinc-800 min-h-44">
-                        <UvIndex uvIndexMax={days.uvIndexMax[0]}/>
+                        <UvIndex uvIndexMax={airquality ? airquality.uvIndex : 0}/>
                     </div>
                     <div style={{width: '32%'}} className="flex flex-col justify-start p-4 rounded-2xl bg-white dark:bg-zinc-800 min-h-44">
                         <WindBlock windDirection={currentDay.windDirection} windSpeed={currentDay.windSpeed}/>
@@ -60,9 +61,7 @@ async function CardRightSide (
                     </div>
 
                     <div style={{width: '32%'}} className="flex p-4 flex-col justify-start rounded-2xl bg-white dark:bg-zinc-800 min-h-44">
-                        <Suspense fallback={<AirQualitySkeleton />}>
-                            <AirQualityBlock longitude={longitude} latitude={latitude}/>
-                        </Suspense>
+                        <AirQualityBlock airquality={airquality}/>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ const {
     geocoding
 } = require('./placeholder-data');
 
-const USE_API = false;
+const USE_API = true;
 
 const urlWeather = "https://api.open-meteo.com/v1/forecast";
 const urlAirQuality = "https://air-quality-api.open-meteo.com/v1/air-quality";
@@ -27,8 +27,21 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
     const params = {
         "latitude": latitude,
         "longitude": longitude,
-        "current": ["temperature_2m", "wind_speed_10m","wind_direction_10m", "relative_humidity_2m", "apparent_temperature", "precipitation", "rain", "showers", "snowfall", "weather_code", "surface_pressure"],
-        "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "uv_index_max", "precipitation_sum", "wind_speed_10m_max"],
+        "current": ["temperature_2m", 
+            "wind_speed_10m",
+            "wind_direction_10m", 
+            "relative_humidity_2m", 
+            "apparent_temperature", 
+            "precipitation", 
+            "weather_code", 
+            "surface_pressure"],
+        "daily": ["weather_code", 
+            "temperature_2m_max", 
+            "temperature_2m_min", 
+            "sunrise", 
+            "sunset", 
+            "precipitation_sum", 
+            "wind_speed_10m_max"],
         "wind_speed_unit": "ms",
         "timezone": "auto",
         "forecast_days": 8
@@ -63,7 +76,7 @@ export async function fetchAirQuality(latitude: number, longitude: number) {
     const params = {
         "latitude": latitude,
         "longitude": longitude,
-        "current": ["european_aqi", "us_aqi", "pm10", "pm2_5", "carbon_monoxide", "nitrogen_dioxide", "sulphur_dioxide", "ozone"],
+        "current": ["european_aqi", "us_aqi", "pm10", "pm2_5", "carbon_monoxide", "nitrogen_dioxide", "sulphur_dioxide", "ozone", "uv_index"],
         "timezone": "auto"
     };
     console.log('fetching airquality data...');

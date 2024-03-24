@@ -1,16 +1,13 @@
-import { fetchAirQuality } from "@/lib/data";
 import { AirQuality } from "@/lib/definitions";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 
-export async function AirQualityBlock (
-    { latitude, longitude }: 
+export function AirQualityBlock (
+    { airquality }: 
     { 
-    latitude: number, 
-    longitude: number
+        airquality: AirQuality | null
     }
 ) {
-    const airquality: AirQuality | null = await fetchAirQuality(latitude, longitude);
-
+    
     const airStatus = airquality ? get_air_status(airquality?.usAqi) : null;
 
     return (

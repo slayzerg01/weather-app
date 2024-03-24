@@ -59,6 +59,7 @@ export function adaptAirQualityDataToClient(inputData: AirQualityResponse) : Air
             nitrogenDioxide: inputData.current.nitrogen_dioxide,
             sulphurDioxide: inputData.current.sulphur_dioxide,
             ozone: inputData.current.ozone,
+            uvIndex: inputData.current.uv_index,
         }
     }
     delete adaptedData.latitude;

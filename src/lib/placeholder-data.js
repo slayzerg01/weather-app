@@ -100,16 +100,6 @@ export const weatherData = {
             "2024-02-27T18:29",
             "2024-02-28T18:30"
         ],
-        "uv_index_max": [
-            3.60,
-            3.40,
-            3.55,
-            3.60,
-            3.65,
-            3.65,
-            3.85,
-            3.70
-        ],
         "precipitation_sum": [
             0.00,
             0.00,
@@ -151,7 +141,8 @@ export const airQuality = {
         "carbon_monoxide": "μg/m³",
         "nitrogen_dioxide": "μg/m³",
         "sulphur_dioxide": "μg/m³",
-        "ozone": "μg/m³"
+        "ozone": "μg/m³",
+        "uv_index":""
     },
     "current": {
         "time": "2024-02-21T16:00",
@@ -163,7 +154,8 @@ export const airQuality = {
         "carbon_monoxide": 220.0,
         "nitrogen_dioxide": 17.7,
         "sulphur_dioxide": 1.3,
-        "ozone": 54.0
+        "ozone": 54.0,
+        "uv_index":0.60
     }
 }
 
