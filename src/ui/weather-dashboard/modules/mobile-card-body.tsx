@@ -1,10 +1,9 @@
 'use client'
 import { daysInfo } from "@/lib/definitions";
-import { Tab, Tabs, Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Tab, Tabs } from "@nextui-org/react";
 import MobileWeatherDailyForecast from "../elements/weather-day/mobile-daily-forecast";
 import { currentDayInfo } from "@/lib/definitions";
 import { TodaysHighlights } from "./mobile-hightlights";
-import { Provider } from "./provider";
 
 export default function MobileCardBody({days, current}: {days: daysInfo, current: currentDayInfo}) {
     return(

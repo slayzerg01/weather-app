@@ -1,5 +1,6 @@
 import { MobileUvIndex } from "../elements/highlights/uv-index";
 import { MobileWindBlock } from "../elements/highlights/wind-block";
+import { MobileSunriseSunsetBlock } from "../elements/highlights/sunrise-sunset";
 import { Suspense } from "react";
 import { currentDayInfo, daysInfo } from "@/lib/definitions";
 import { Tab, Tabs, Card, CardBody, CardHeader } from "@nextui-org/react";
@@ -15,7 +16,7 @@ export function TodaysHighlights(
                 <Suspense>
                     <MobileWindBlock windDirection={current.windDirection} windSpeed={current.windSpeed}/>
                 </Suspense>
-                
+                <MobileSunriseSunsetBlock sunrise={days.sunrise[0]} sunset={days.sunset[0]}/>
             <Card>
                 <CardHeader>Chel</CardHeader>
                 <CardBody>csdcsdc</CardBody>
