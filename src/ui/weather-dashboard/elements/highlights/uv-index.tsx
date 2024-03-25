@@ -40,7 +40,7 @@ export function MobileUvIndex (
                         {['--percentage' as any] : `${uvIndexMax*8.33}`,
                         ['--fill' as any] : `${get_uv_index_color(uvIndexMax)}`}
                         }>
-                        {uvIndexMax}
+                        <span className='text-xl'>{uvIndexMax}</span>
                 </div>
                 
             </CardBody>

@@ -32,7 +32,7 @@ export function MobileSurfacePressure (
         <Card className='dark:bg-zinc-800'>
             <CardHeader className="pb-2">Pressure</CardHeader>
             <CardBody className='flex flex-row justify-between items-center'>
-                <span className="text-gray-500 text-bold">{Math.ceil(surfacePressure)} hPa</span>
+                <span className="text-2xl text-gray-500 text-bold">{Math.ceil(surfacePressure)} hPa</span>
                 <Image className="self-center" 
                 src={`/${theme === 'dark' ? 'white-pressure.png' : 'pressure.png'}`} 
                 width="50" 

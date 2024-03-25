@@ -39,11 +39,11 @@ export function MobileSunriseSunsetBlock (
             <CardBody className='flex p-2 flex-row justify-around items-center'>
                 <div className="flex flex-col flex-grow justify-start">
                     <div className="flex flex-row justify-around items-center mb-2">
-                        <span className=" text-gray-500 text-bold">{sunrise}</span>
+                        <span className=" text-gray-500 text-xl text-bold">{sunrise}</span>
                         <Image src="/sunrise.png" width="30" height="30" alt="sunrise image" />
                     </div>
                     <div className="flex flex-row justify-around items-center">
-                        <span className="text-gray-500 text-bold">{sunset}</span>
+                        <span className="text-gray-500 text-xl text-bold">{sunset}</span>
                         <Image src="/sunset.png" width="30" height="30" alt="sunset image" />
                     </div>
                 </div>

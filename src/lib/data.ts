@@ -11,7 +11,7 @@ const {
     geocoding
 } = require('./placeholder-data');
 
-const USE_API = true;
+const USE_API = false;
 
 const urlWeather = "https://api.open-meteo.com/v1/forecast";
 const urlAirQuality = "https://air-quality-api.open-meteo.com/v1/air-quality";
@@ -42,6 +42,7 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
             "sunset", 
             "precipitation_sum", 
             "wind_speed_10m_max"],
+        "hourly": ["temperature_2m", "weather_code", "wind_speed_10m"],
         "wind_speed_unit": "ms",
         "timezone": "auto",
         "forecast_days": 8
@@ -54,13 +55,13 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
 
         if (USE_API) {
 
-            const response = await axios(urlWeather, {params: params});
-            
-            return adaptWeatherDataToClient(response.data);
+            const response = await axios(urlWeather, {params: params})
+            console.log(response.data)
+            return adaptWeatherDataToClient(response.data)
 
         }
         else {
-            return adaptWeatherDataToClient(weatherData);
+            return adaptWeatherDataToClient(weatherData)
         }
         
 

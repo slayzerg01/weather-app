@@ -12,7 +12,7 @@ export default async function CardLeftSide ({ currentDay, locationName }:
 
     return (
         <div className="flex flex-col rounded-l-2xl justify-start items-center w-full bg-white dark:bg-zinc-800">
-            <Image className="p-4" src={`/weather-status/${currentDay.weatherCode}.png`} width="350" height="350" alt="product image" />
+            <Image className="p-4" src={`/weather-status/${currentDay.weatherCode}.png`} width="350" height="350" alt="weather image" />
             <div className="flex flex-col flex-1 mb-5">
                 <h5 className="text-4xl text-center font-semibold tracking-tight">{currentDay.temperature} °C</h5>
                 <div className="flex flex-row justify-center items-center mx-auto mb-1">
@@ -33,7 +33,7 @@ export default async function CardLeftSide ({ currentDay, locationName }:
                 
                 <div className="flex place-self-end  flex-row mx-auto">
                     <div className="relative">
-                        <Image style={{display: 'block', width: '320px', height: '120px'}} className="rounded-2xl" src="/sky.jpg" width="250" height="250" alt="product image" />
+                        <Image style={{display: 'block', width: '320px', height: '120px'}} className="rounded-2xl" src="/sky.jpg" width="250" height="250" alt="weather image" />
                         <span className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-gray-700 text-center text-4xl font-bold">{locationName}</span>
                     </div>
                 </div>

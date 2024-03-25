@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-export function MobileCardHeader ({location, temperature, temperature_max, temperature_min} :
+export function MobileCardHeader ({location, temperature, temperature_max, temperature_min, weatheCode} :
     {location: string, 
     temperature: number, 
     temperature_max: number, 
-    temperature_min: number
+    temperature_min: number,
+    weatheCode: number
     }) 
 {
 
@@ -16,7 +17,7 @@ export function MobileCardHeader ({location, temperature, temperature_max, tempe
                     <span className="text-2xl">{location}</span>
                     <span>Cloudy {temperature_max}°/{temperature_min}°</span>
                 </div>
-                <Image className="p-2 flex" src={`/weather-status/1.png`} width="80" height="80" alt="product image" />
+                <Image className="p-2 flex" src={`/weather-status/${weatheCode}.png`} width="80" height="80" alt="weather image" />
             </div>
     );
 }

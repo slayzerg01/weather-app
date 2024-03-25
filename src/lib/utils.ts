@@ -10,6 +10,8 @@ function formatTime(time: string) {
 }
 
 export function adaptWeatherDataToClient(inputData: WeatherResponse) : weatherInfo {
+    const startTime = dayjs(inputData.current.time).hour() + 1
+    const endTime = startTime + 25
     const adaptedData = {...inputData, 
         current: {
             time: formatTimeWithWeekDay(new Date().toISOString()),
@@ -26,12 +28,19 @@ export function adaptWeatherDataToClient(inputData: WeatherResponse) : weatherIn
         daily: {
             time: inputData.daily.time.map((element) => dateToDayOfWeek(element)),
             weatherCode: inputData.daily.weather_code,
+            weatherCodeText: inputData.daily.weather_code.map((element) => WMOcodeToText(element)),
             temperatureMax: inputData.daily.temperature_2m_max.map((element) => Math.round(element)),
             temperatureMin: inputData.daily.temperature_2m_min.map((element) => Math.round(element)),
             sunrise: inputData.daily.sunrise.map((element) => formatTime(element)),
             sunset: inputData.daily.sunset.map((element) => formatTime(element)),
             precipitationSum: inputData.daily.precipitation_sum,
             windSpeedMax: inputData.daily.wind_speed_10m_max,
+        },
+        hourly: {
+            time: inputData.hourly.time.slice(startTime, endTime).map((element) => getHourFromDate(element)),
+            temperature: inputData.hourly.temperature_2m.slice(startTime, endTime).map((element) => Math.round(element)),
+            weatherCode: inputData.hourly.weather_code.slice(startTime, endTime),
+            windSpeed: inputData.hourly.wind_speed_10m.slice(startTime, endTime).map((element) => element.toFixed(1)),
         }
     }
     delete adaptedData.latitude;
@@ -43,6 +52,7 @@ export function adaptWeatherDataToClient(inputData: WeatherResponse) : weatherIn
     delete adaptedData.elevation;
     delete adaptedData.current_units;
     delete adaptedData.daily_units;
+    delete adaptedData.hourly_units;
 
     return adaptedData as weatherInfo;
 }
@@ -85,6 +95,10 @@ export function adaptGeocodingDataToClient(inputData: GeocodingResponse) : Locat
 
 function dateToDayOfWeek(date: string) {
     return dayjs(date).format('ddd');
+}
+
+function getHourFromDate(date: string) {
+    return dayjs(date).format('HH:mm');
 }
 
 function WMOcodeToText(code: number) {

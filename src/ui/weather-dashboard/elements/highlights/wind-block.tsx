@@ -18,8 +18,8 @@ export function MobileWindBlock (
             <CardHeader className="pb-2">Wind status</CardHeader>
             <CardBody className='flex p-2 flex-row justify-around items-center'>
                 <div className='flex flex-col'>
-                    <span className="self-center text-bold text-2xl">{clientDirection.name}</span> 
-                    <span className="text-center text-bold">{windSpeed} m/s</span>
+                    <span className="self-center text-gray-500 text-bold text-4xl">{clientDirection.name}</span> 
+                    <span className="text-center text-gray-500 text-bold">{windSpeed} m/s</span>
                 </div>
                     <Image style={{
                         rotate: `${clientDirection.degree + 135}deg`, 

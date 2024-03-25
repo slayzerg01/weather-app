@@ -10,6 +10,22 @@ export type WeatherResponse = {
     current: currentDay;
     daily_units?: dailyUnits;
     daily: daily;
+    hourly_units?: HourlyUnits;
+    hourly: HourlyResponse;
+}
+
+type HourlyResponse = {
+    time: string[];
+    temperature_2m: number[];
+    weather_code: number[];
+    wind_speed_10m: number[];
+}
+
+type HourlyUnits = {
+    time: string;
+    temperature_2m: string;
+    weather_code: string;
+    wind_speed_10m: string;
 }
 
 type daily = {
@@ -76,6 +92,7 @@ export type currentDayInfo = {
 export type daysInfo = {
     time: string[];
     weatherCode: number[];
+    weatherCodeText: string[];
     temperatureMax: number[];
     temperatureMin: number[];
     sunrise: string[];
@@ -87,6 +104,14 @@ export type daysInfo = {
 export type weatherInfo = {
     current: currentDayInfo;
     daily: daysInfo;
+    hourly: Hourly;
+}
+
+export type Hourly = {
+    time: string[];
+    temperature: number[];
+    weatherCode: number[];
+    windSpeed: string[];
 }
 
 export type AirQualityResponse = {

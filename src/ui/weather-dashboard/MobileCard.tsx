@@ -1,4 +1,4 @@
-import { AirQuality, LocationData, weatherInfo } from "@/lib/definitions";
+import { AirQuality, LocationData, weatherInfo as WeatherInfo, daysInfo as DaysInfo, Hourly, currentDayInfo as CurrentDayInfo } from "@/lib/definitions";
 import { fetchAirQuality, fetchLocationCoordinates, fetchRealTimeWeather } from "@/lib/data";
 import EmptyPage from "../empty-page";
 import { MobileCardHeader } from "./modules/mobile-card-header";
@@ -13,14 +13,15 @@ export default async function MobileCard ({
     const locationData: LocationData | null = await fetchLocationCoordinates(location)
     if (locationData == null) return EmptyPage()
 
-    const weatherData: weatherInfo | null = await fetchRealTimeWeather(locationData.latitude, locationData.longitude)
+    const weatherData: WeatherInfo | null = await fetchRealTimeWeather(locationData.latitude, locationData.longitude)
     if (weatherData == null) return EmptyPage()
     
     const airquality: AirQuality | null = await fetchAirQuality(locationData.latitude, locationData.longitude);
     if (airquality == null) return EmptyPage()
     
-    const curDay = weatherData.current 
-    const days = weatherData.daily
+    const curDay: CurrentDayInfo  = weatherData.current 
+    const days: DaysInfo = weatherData.daily
+    const hourly: Hourly = weatherData.hourly
 
     return (
         <div className="flex flex-col rounded-2xl justify-start w-full bg-white dark:bg-zinc-800">
@@ -28,8 +29,9 @@ export default async function MobileCard ({
             location={locationData.name} 
             temperature={curDay.temperature}
             temperature_max={days.temperatureMax[0]}
-            temperature_min={days.temperatureMin[0]} />
-            <MobileCardBody days={days} current={curDay} airquality={airquality}/>
+            temperature_min={days.temperatureMin[0]} 
+            weatheCode={curDay.weatherCode}/>
+            <MobileCardBody days={days} current={curDay} airquality={airquality} hourly={hourly}/>
         </div>
     );
 }
