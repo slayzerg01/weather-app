@@ -23,7 +23,7 @@ function MobileHourForecast( {time, temperature, windSpeed, weatherCode}:
     {
         time: string, 
         temperature: number,
-        windSpeed: number,
+        windSpeed: string,
         weatherCode: number
     }) 
 {
