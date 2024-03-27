@@ -14,7 +14,7 @@ export function adaptWeatherDataToClient(inputData: WeatherResponse) : weatherIn
     const endTime = startTime + 25
     const adaptedData = {...inputData, 
         current: {
-            time: formatTimeWithWeekDay(new Date().toISOString()),
+            time: formatTimeWithWeekDay(inputData.current.time),
             temperature: Math.round(inputData.current.temperature_2m),
             aparentTemperature:  Math.round(inputData.current.apparent_temperature),
             precipitation: inputData.current.precipitation,

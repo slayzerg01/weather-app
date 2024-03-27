@@ -30,7 +30,9 @@ export default async function MobileCard ({
             temperature={curDay.temperature}
             temperature_max={days.temperatureMax[0]}
             temperature_min={days.temperatureMin[0]} 
-            weatheCode={curDay.weatherCode}/>
+            weatheCode={curDay.weatherCode}
+            weatheCodeText={curDay.weatherCodeText}
+            time={curDay.time}/>
             <MobileCardBody days={days} current={curDay} airquality={airquality} hourly={hourly}/>
         </div>
     );

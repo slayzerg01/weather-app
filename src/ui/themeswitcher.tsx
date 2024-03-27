@@ -15,7 +15,6 @@ export function ThemeSwitcher() {
 
     function switcherClickHandler() {
         theme == 'dark' ? setTheme('light') : setTheme('dark') 
-        console.log(theme)
     }
 
     if(!mounted) return null

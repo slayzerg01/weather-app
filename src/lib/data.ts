@@ -11,7 +11,7 @@ const {
     geocoding
 } = require('./placeholder-data');
 
-const USE_API = false;
+const USE_API = true;
 
 const urlWeather = "https://api.open-meteo.com/v1/forecast";
 const urlAirQuality = "https://air-quality-api.open-meteo.com/v1/air-quality";
@@ -56,7 +56,6 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
         if (USE_API) {
 
             const response = await axios(urlWeather, {params: params})
-            console.log(response.data)
             return adaptWeatherDataToClient(response.data)
 
         }
