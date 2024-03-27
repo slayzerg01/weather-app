@@ -27,27 +27,40 @@ export async function fetchRealTimeWeather(latitude: number, longitude: number) 
     const params = {
         "latitude": latitude,
         "longitude": longitude,
-        "current": ["temperature_2m", "wind_speed_10m","wind_direction_10m", "relative_humidity_2m", "apparent_temperature", "precipitation", "rain", "showers", "snowfall", "weather_code", "surface_pressure"],
-        "daily": ["weather_code", "temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "uv_index_max", "precipitation_sum", "wind_speed_10m_max"],
+        "current": ["temperature_2m", 
+            "wind_speed_10m",
+            "wind_direction_10m", 
+            "relative_humidity_2m", 
+            "apparent_temperature", 
+            "precipitation", 
+            "weather_code", 
+            "surface_pressure"],
+        "daily": ["weather_code", 
+            "temperature_2m_max", 
+            "temperature_2m_min", 
+            "sunrise", 
+            "sunset", 
+            "precipitation_sum", 
+            "wind_speed_10m_max"],
+        "hourly": ["temperature_2m", "weather_code", "wind_speed_10m"],
         "wind_speed_unit": "ms",
         "timezone": "auto",
         "forecast_days": 8
     };
 
     console.log('fetching weather data...');
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 10000));
     //noStore();
     try {
 
         if (USE_API) {
 
-            const response = await axios(urlWeather, {params: params});
-            
-            return adaptWeatherDataToClient(response.data);
+            const response = await axios(urlWeather, {params: params})
+            return adaptWeatherDataToClient(response.data)
 
         }
         else {
-            return adaptWeatherDataToClient(weatherData);
+            return adaptWeatherDataToClient(weatherData)
         }
         
 
@@ -63,7 +76,7 @@ export async function fetchAirQuality(latitude: number, longitude: number) {
     const params = {
         "latitude": latitude,
         "longitude": longitude,
-        "current": ["european_aqi", "us_aqi", "pm10", "pm2_5", "carbon_monoxide", "nitrogen_dioxide", "sulphur_dioxide", "ozone"],
+        "current": ["european_aqi", "us_aqi", "pm10", "pm2_5", "carbon_monoxide", "nitrogen_dioxide", "sulphur_dioxide", "ozone", "uv_index"],
         "timezone": "auto"
     };
     console.log('fetching airquality data...');

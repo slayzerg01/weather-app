@@ -10,6 +10,22 @@ export type WeatherResponse = {
     current: currentDay;
     daily_units?: dailyUnits;
     daily: daily;
+    hourly_units?: HourlyUnits;
+    hourly: HourlyResponse;
+}
+
+type HourlyResponse = {
+    time: string[];
+    temperature_2m: number[];
+    weather_code: number[];
+    wind_speed_10m: number[];
+}
+
+type HourlyUnits = {
+    time: string;
+    temperature_2m: string;
+    weather_code: string;
+    wind_speed_10m: string;
 }
 
 type daily = {
@@ -19,7 +35,6 @@ type daily = {
     temperature_2m_min: number[];
     sunrise: string[];
     sunset: string[];
-    uv_index_max?: number[];
     precipitation_sum?: number[];
     wind_speed_10m_max?: number[];
 }
@@ -57,14 +72,13 @@ type dailyUnits = {
     temperature_2m_min: string;
     sunrise: string;
     sunset: string;
-    uv_index_max: string;
     precipitation_sum: string;
     wind_speed_10m_max: string;
 }
 
 export type currentDayInfo = {
     time: string;
-    temperature?: number;
+    temperature: number;
     aparentTemperature: number;
     precipitation: number;
     weatherCodeText: string;
@@ -78,11 +92,11 @@ export type currentDayInfo = {
 export type daysInfo = {
     time: string[];
     weatherCode: number[];
+    weatherCodeText: string[];
     temperatureMax: number[];
     temperatureMin: number[];
     sunrise: string[];
     sunset: string[];
-    uvIndexMax: number[];
     precipitationSum: number[];
     windSpeedMax: number[];
 }
@@ -90,6 +104,14 @@ export type daysInfo = {
 export type weatherInfo = {
     current: currentDayInfo;
     daily: daysInfo;
+    hourly: Hourly;
+}
+
+export type Hourly = {
+    time: string[];
+    temperature: number[];
+    weatherCode: number[];
+    windSpeed: string[];
 }
 
 export type AirQualityResponse = {
@@ -115,6 +137,7 @@ type AirQualityUnits = {
     nitrogen_dioxide: string;
     sulphur_dioxide: string;
     ozone: string;
+    uv_index: string;
 }
 
 type AirQualityCurrent = {
@@ -128,6 +151,7 @@ type AirQualityCurrent = {
     nitrogen_dioxide: number;
     sulphur_dioxide: number;
     ozone: number;
+    uv_index: number;
 }
 
 export type AirQuality = {
@@ -139,6 +163,7 @@ export type AirQuality = {
     nitrogenDioxide: number;
     sulphurDioxide: number;
     ozone: number;
+    uvIndex:number;
 }
 
 export type GeocodingResponse = {

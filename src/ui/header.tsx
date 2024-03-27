@@ -4,7 +4,7 @@ import { ThemeSwitcher } from "./themeswitcher";
 function Header() {
     return (
         <header className="dark:bg-zinc-800">
-            <div className="mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-row justify-between">
+            <div className="mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-row justify-between items-center">
                 <div className="flex">
                     <a href='/'>
                         <SunIcon className="h-10 w-10 mr-2 md:mr-5"/>

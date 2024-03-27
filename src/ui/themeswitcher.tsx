@@ -13,7 +13,7 @@ export function ThemeSwitcher() {
         setMounted(true)
     }, [])
 
-    function switcherClicked() {
+    function switcherClickHandler() {
         theme == 'dark' ? setTheme('light') : setTheme('dark') 
     }
 
@@ -27,7 +27,7 @@ export function ThemeSwitcher() {
                 startContent={<SunIcon />}
                 endContent={<MoonIcon />}
                 isSelected={theme == 'dark' ? false : true}
-                onChange={() => switcherClicked()}
+                onChange={() => switcherClickHandler()}
             >
                 {/* {switchstate ? 'Dark mode' : 'Light Mode' } */}
             </Switch>
