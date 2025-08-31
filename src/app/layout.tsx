@@ -3,6 +3,8 @@ import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "../ui/header";
 import { Providers } from "./providers";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 const roboto = Roboto({subsets: ["latin"], weight:"500"});
@@ -30,7 +32,8 @@ export default function RootLayout({
               {children}
             </div>
           </Providers>
-          
+          <Analytics />
+          <SpeedInsights />
           </body>
         
     </html>
